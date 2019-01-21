@@ -1,0 +1,25 @@
+{
+    "navigation": [
+        {
+            "title": "Inicio",
+            "icon": "sap-icon://home",
+            "expanded": true,
+            "key": "home",
+            "items": []
+        },              
+        {
+            "title": "Ordenes de Ventas",
+            "icon": "sap-icon://sales-order",
+            "expanded": true,
+            "key": "salesOrders",
+            "items": []
+        }
+    ],
+    "fixedNavigation": [
+        {
+            "title": "Acerca de",
+            "icon": "sap-icon://hint",
+            "key": "aboutus"
+        }
+    ]
+}

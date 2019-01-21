@@ -1,0 +1,14 @@
+<mvc:View
+    controllerName="pe.idc.web.test.springmvc.controller.Login"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    height="100%">    
+    <VBox height="100%" justifyContent="Center" alignItems="Center" class="sapUiContentPadding">
+        <Label id="lblLogin" text="{i18n>appTitle}" design="Bold" labelFor="inpLogin" />
+        <Input id="inpLogin" editable="true" value="" maxLength="20"/>
+        <Label id="lblPWD" text="Password" design="Bold"  labelFor="inpPWD"/>
+        <Input id="inpPWD" type="Password" editable="true" value="" maxLength="20" />
+        <Button id="bntLogin" text="Login" tap="actLogin" />
+    </VBox>    
+</mvc:View>

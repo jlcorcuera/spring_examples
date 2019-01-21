@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/test-swagger2">
+  <ResourceLink global="jdbc/testDS" name="jdbc/testDS" type="javax.sql.DataSource"/>
+</Context>
