@@ -10,14 +10,14 @@ https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.
 
 ### To mount directory as context:
 - Create a xml file (sapui.xml) with the following content:
-
+```
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Context docBase="C:\Repository\sapui" path="/sapui"/>
-
+```
 - Place the created xml into ${TOMCAT_HOME}\conf\Catalina\localhost
 
-Where "C:\Repository\sapui" folder contains the content of https://tools.hana.ondemand.com/additional/sap-webide-personal-edition-1.53.9-trial-win32.win32.x86_64.zip
+Where "C:\Repository\sapui" folder contains the content of https://tools.hana.ondemand.com/additional/sapui5-rt-1.60.2.zip
 
 ### To define a JNDI resource on Tomcat
 
