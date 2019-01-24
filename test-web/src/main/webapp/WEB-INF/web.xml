@@ -33,7 +33,7 @@
     </servlet-mapping>
 
     <welcome-file-list> 
-        <welcome-file>pages/public/welcome</welcome-file>
+        <welcome-file>pages/public/login</welcome-file>
     </welcome-file-list>
 
 </web-app>

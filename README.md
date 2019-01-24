@@ -85,3 +85,7 @@ Once you uncompress the zip file execute the netbeans64.exe (path: C:\Software\n
 * On Sources category, make sure that 1.8 value is selected on "Source/Binary Format" dropdown.
 * On Run category, select the "tc-8.3.57" in the server dropdown and choose a browser on the related dropbown.
 * Clic on OK.
+
+To see all services implemented in test-swagger2 application you need to access to the following link:
+
+http://localhost:8080/test-swagger2/api/swagger-ui.html

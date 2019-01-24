@@ -10,22 +10,8 @@ sap.ui.define([
             this.customInit();
         },
         actLogin: function () {
-            sap.ui.require([
-                "sap/ui/core/ComponentContainer"
-            ], function (ComponentContainer) {
-                sap.ui.component({
-                    async: true,
-                    name: "pe.idc.web.test.springmvc"
-                }).then(function (yourComponent) {
-                    new ComponentContainer({
-                        component: yourComponent,
-                        settings: {
-                            id: "springmvc-app"
-                        }
-                    }).placeAt("content", "only");
-                });
-            });
-            alert('entro');
+            var homePage = SERVER_URL + "/pages/home"
+            window.location.replace(homePage);
         }
     });
 });

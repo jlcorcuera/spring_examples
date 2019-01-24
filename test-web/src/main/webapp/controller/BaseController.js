@@ -1,13 +1,11 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/UIComponent",
-     "sap/ui/model/resource/ResourceModel"
-], function (Controller, UIComponent, ResourceModel) {
+    "sap/ui/core/UIComponent"
+], function (Controller, UIComponent) {
     "use strict";
 
     return Controller.extend("pe.idc.web.test.springmvc.controller.BaseController", {
-
-        customInit: function() {
+        customInit: function () {
             var i18nModel = new sap.ui.model.resource.ResourceModel({
                 bundleName: "pe.idc.web.test.springmvc.i18n.i18n"
             });

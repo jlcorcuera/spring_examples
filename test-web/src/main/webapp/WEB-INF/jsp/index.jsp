@@ -3,6 +3,8 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">                
         <title>Spring MVC Test</title>
         <link rel="stylesheet" type="text/css" href="${serverUrl}/css/style.css">
         <script
@@ -28,24 +30,6 @@
                 sap.ui.getCore().getConfiguration().setLanguage("es");
                 sap.ui.xmlview("loginView", "pe.idc.web.test.springmvc.view.Login").placeAt("content");
             });
-            /*sap.ui.getCore().attachInit(function () {
-             sap.ui.require([
-             "sap/ui/core/ComponentContainer"
-             ], function (ComponentContainer) {
-             sap.ui.component({
-             async: true,
-             name: "pe.idc.web.test.springmvc"
-             }).then(function (yourComponent) {
-             new ComponentContainer({
-             component: yourComponent,
-             height: "100%",
-             settings: {
-             id: "springmvc-app"
-             }
-             }).placeAt("content");
-             });
-             });
-             });*/
             //]]>
         </script>         
     </head>
