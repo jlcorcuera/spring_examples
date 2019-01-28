@@ -1,0 +1,24 @@
+project: test-web
+
+setup instructions
+
+1. On your Tomcat directory, create a folder called "properties".
+2. Inside the created directory ("properties") create "test-web" folder.
+3. Put there app.properties file (this file is located in: ${REPO_HOME}\properties\test-web folder)
+4. Open the file ${TOMCAT_HOME}\conf\catalina.properties and modify the properties "shared.loader" as it is indicated below:
+
+shared.loader=${catalina.home}/properties
+
+The line above will add to the shared classloader the "properties" directory. In this way, our application will locate our properties file (line 49 of spring-context.xml file) in ${TOMCAT_HOME}\properties\test-web\app.properties.
+
+5. Note that the property value of "open_ui_location" in app.properties file is set as:
+
+open_ui_location=https://openui5.hana.ondemand.com/1.61.1
+
+It means that it will load the openui5 resources from its CDN. 
+
+If everything was done correctly, at this point the application should have loaded the resources of OpenUI5 from its CDN. Cheers!.
+
+Please read:
+
+https://dzone.com/articles/using-more-one-property-file

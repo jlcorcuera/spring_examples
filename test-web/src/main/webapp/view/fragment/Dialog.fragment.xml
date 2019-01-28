@@ -15,7 +15,9 @@
         stretch="true"
         draggable = "true">
         <content>
-            <Label id="lblDialog" text="Label inside dialog popup" design="Bold"/>
+            <Label id="lblDialog1" text="Label inside dialog popup" design="Bold"/>
+            <Label id="lblDialog2" text="Label inside dialog popup" design="Bold"/>
+            <Label id="lblDialog3" text="Label inside dialog popup" design="Bold"/>
         </content>
         <beginButton>
             <Button id="aceptarBtn" text="Aceptar" press="onAcceptDialog" />

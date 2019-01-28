@@ -33,6 +33,9 @@ sap.ui.define([
         },
         showPopup: function (oEvent) {
             var testDialog = this.getOwnerComponent().testDialog;
+            testDialog.setAcceptHandler(function(){
+                alert('regrese a la ventana principal');
+            });
             testDialog.open(this.getView());
         }
     });

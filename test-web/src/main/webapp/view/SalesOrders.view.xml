@@ -61,7 +61,7 @@
                 <items>
                     <ColumnListItem>
                         <cells>
-                            <Text text="d {soModel>id}" />
+                            <Text text="ID new {soModel>id}" />
                             <Text text="{parts: [{path: 'soModel>date'}], formatter: '.formatter.formatDate'}" />
                             <Text text="{soModel>customer}" />
                             <Text text="{soModel>taxes}" />

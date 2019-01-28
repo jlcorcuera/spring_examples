@@ -4,6 +4,7 @@ sap.ui.define([
     "use strict";
     return Object.extend("pe.idc.web.test.springmvc.controller.dialog.TestDialog", {
         currentView: null,
+        acceptHandler: null,
         _getDialog: function () {
             // create dialog lazily
             if (!this._oDialog) {
@@ -24,7 +25,14 @@ sap.ui.define([
             this._getDialog().close();
         },
         onAcceptDialog: function () {
+            //verify whether the acceptHandler was set and also it has a value
+            if (this.hasOwnProperty("acceptHandler") && this.acceptHandler != null){
+                this.acceptHandler();
+            }
             this._getDialog().close();
+        },
+        setAcceptHandler: function(handler){
+            this.acceptHandler = handler;
         }
     });
 });

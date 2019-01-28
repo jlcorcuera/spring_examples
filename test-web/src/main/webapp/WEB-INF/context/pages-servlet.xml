@@ -18,7 +18,11 @@
     
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <property name="contentType" value="text/html; charset=UTF-8"/>
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>    
+    
+    <context:property-placeholder location="classpath:test-web/app.properties"/>
+
 </beans>
