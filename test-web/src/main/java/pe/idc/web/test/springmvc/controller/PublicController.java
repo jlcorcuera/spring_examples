@@ -35,4 +35,11 @@ public class PublicController {
         return "index";
     }
     
+    @RequestMapping(value = "/registration", method = RequestMethod.GET) 
+    public String registration(Model model) {
+        model.addAttribute("serverUrl", serverUrl);
+        model.addAttribute("openUIUrl", openUIUrl);
+        return "registration";
+    }    
+    
 }

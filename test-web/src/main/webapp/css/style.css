@@ -10,4 +10,17 @@ and open the template in the editor.
 
 html, body, #body {
     height: 100%;
+    background: white !important;
+}
+
+.registrationLabel{
+    font-weight: bold !important;
+    font-size: 22pt !important;
+}
+
+.businessNameLabel{
+    font-family: "Arial,Helvetica,sans-serif";
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    height: 100%;
 }

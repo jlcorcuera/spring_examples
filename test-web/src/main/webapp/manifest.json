@@ -32,9 +32,9 @@
         },
         "dependencies": {
             "minUI5Version": "1.30",
-            "libs": {
-                "sap.m": {}
-            }
+            "libs": [
+                "sap.m"
+            ]
         },
         "models": {
             "i18n": {

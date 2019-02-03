@@ -8,6 +8,8 @@ sap.ui.define([
 
         onInit: function () {
             this.customInit();
+            var forgotLink = this.byId("forgotLink");
+            forgotLink.setHref(SERVER_URL + "/pages/public/registration");
         },
         actLogin: function () {
             var homePage = SERVER_URL + "/pages/home"

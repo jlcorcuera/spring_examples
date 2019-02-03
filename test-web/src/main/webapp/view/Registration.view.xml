@@ -1,0 +1,78 @@
+<mvc:View
+    controllerName="pe.idc.web.test.springmvc.controller.Registration"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    height="100%">
+    <VBox
+        height="100%"
+        direction="Column"
+        alignItems="Center"
+        justifyContent="Center">
+        <items>
+            <Panel width="auto" class="sapUiResponsiveMargin">
+                <content>
+                    <VBox
+                        height="100%"
+                        direction="Column"
+                        alignItems="Center"
+                        justifyContent="Center"
+                        class="sapUiSmallMarginEnd">
+                        <items>
+                            <Label text="{i18n>registration.label.title}" class="registrationLabel"/>
+                            <Select width="200px" class="sapUiMediumMarginTop" change="updateWindow"
+                                selectedKey="{path:'/userType'}">
+                                <items>
+                                    <core:Item key="1" text="{i18n>registration.option.internal}" />
+                                    <core:Item key="2" text="{i18n>registration.option.external}" />
+                                </items>
+                            </Select>
+                        </items>  
+                    </VBox>
+                    <HBox id="externalInfoHBox" visible="false" alignItems="Center">
+                        <items>
+                            <Input editable="true" type="Number" placeholder="{i18n>registration.input.businessId}"
+                                   maxLength="11" width="150px"/>
+                            <Button icon="sap-icon://search" press="businessSearch" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                            <Label id="businessName" text="{path:'/businessName'}" class="businessNameLabel" />
+                        </items>  
+                    </HBox>                        
+                    <HBox>
+                        <items>
+                            <VBox
+                                height="100%"
+                                direction="Column"
+                                alignItems="Center"
+                                justifyContent="Center"
+                                class="sapUiSmallMarginEnd">
+                                <items>
+                                    <Input editable="true" placeholder="{i18n>registration.input.name}" maxLength="20"/>
+                                    <Input placeholder="{i18n>registration.input.docNum}" maxLength="20"/>
+                                    <Input type="Password" placeholder="{i18n>registration.input.password}" maxLength="20"/>
+                                </items>  
+                            </VBox>            
+                            <VBox
+                                height="100%"
+                                direction="Column"
+                                alignItems="Center"
+                                justifyContent="Center">
+                                <items>
+                                    <Input editable="true" placeholder="{i18n>registration.input.surname}" maxLength="20"/>
+                                    <Input placeholder="{i18n>registration.input.email}" maxLength="20" />                    
+                                    <Input type="Password" placeholder="{i18n>registration.input.confirmPassword}" maxLength="20" />
+                                </items>  
+                            </VBox>                     
+                        </items>  
+                    </HBox>     
+                    <HBox justifyContent="Center">
+                        <items>
+                            <Button text="{i18n>registration.button.accept}" press="register" class="sapUiTinyMarginEnd"/>
+                            <Button text="{i18n>registration.button.cancel}" press="cancel" class="sapUiTinyMarginEnd"/>
+                        </items>  
+                    </HBox>                      
+                </content>
+            </Panel>
+        </items>
+    </VBox>
+</mvc:View>

@@ -4,11 +4,25 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     height="100%">    
-    <VBox height="100%" justifyContent="Center" alignItems="Center" class="sapUiContentPadding">
-        <Label id="lblLogin" text="{i18n>appTitle}" design="Bold" labelFor="inpLogin" />
-        <Input id="inpLogin" editable="true" value="" maxLength="20"/>
-        <Label id="lblPWD" text="Password" design="Bold"  labelFor="inpPWD"/>
-        <Input id="inpPWD" type="Password" editable="true" value="" maxLength="20" />
-        <Button id="bntLogin" text="Login" tap="actLogin" />
-    </VBox>    
+    <FlexBox
+        height="100%"
+        direction="Column"
+        alignItems="Center"
+        justifyContent="Center">
+        <items>
+            <Image
+                src="./images/logo.png"
+                densityAware="false"
+                class="sapUiTinyMargin"/>
+            <Input id="inpLogin" editable="true" placeholder="{i18n>login.label.login}" 
+                   maxLength="20" />
+            <Input id="inpPWD" type="Password" editable="true" 
+                   placeholder="{i18n>login.label.password}" maxLength="20"
+            />
+            <Button id="bntLogin" text="{i18n>login.button.login}" 
+                    width="150px"
+                    press="actLogin" class="sapUiTinyMargin chalaButton"/>
+            <Link id="forgotLink" text="{i18n>login.link.forgotPassword}" class="sapUiTinyMargin"/>
+        </items>
+    </FlexBox>    
 </mvc:View>
