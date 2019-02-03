@@ -11,7 +11,7 @@
         <script
             id="sap-ui-bootstrap"
             src="${openUIUrl}/resources/sap-ui-core.js"
-            data-sap-ui-theme="sap_bluecrystal"
+            data-sap-ui-theme="sap_belize"
             data-sap-ui-libs="sap.m, sap.tnt, sap.ui.commons"
             data-sap-ui-compatVersion="edge"
             data-sap-ui-preload="async"

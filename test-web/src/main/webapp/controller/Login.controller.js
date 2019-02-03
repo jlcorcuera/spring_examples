@@ -12,7 +12,7 @@ sap.ui.define([
             forgotLink.setHref(SERVER_URL + "/pages/public/registration");
         },
         actLogin: function () {
-            var homePage = SERVER_URL + "/pages/home"
+            var homePage = SERVER_URL + "/pages/home";
             window.location.replace(homePage);
         }
     });
