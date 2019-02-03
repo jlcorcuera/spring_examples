@@ -1,6 +1,5 @@
 <mvc:View
     controllerName="pe.idc.web.test.springmvc.controller.Login"
-    xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     height="100%">    
