@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.idc.web.test.springmvc.dto.SalesOrderDTO;
@@ -184,6 +185,7 @@ public class SalesOrderService {
         salesOrderRepository.delete(salesOrderId);
     }
     
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
     public List<SalesOrderDTO> list(){
         return salesOrderRepository.list();
     }

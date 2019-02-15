@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pe.idc.web.test.springmvc.util.SecurityUtils;
 
 /**
  *
@@ -24,16 +25,28 @@ public class HomeController {
     @Value("${server_location}")
     private String serverUrl;
     
-    @Value("${open_ui_location}")
-    private String openUIUrl;
     
     private static final Logger log = LoggerFactory.getLogger(HomeController.class);
         
-    @RequestMapping(method = RequestMethod.GET) 
-    public String welcome(Model model) {
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)     
+    public String welcomeAdmin(Model model) {
         model.addAttribute("serverUrl", serverUrl);
-        model.addAttribute("openUIUrl", openUIUrl);
-        return "home";
+        return "admin";
     }    
 
+    @RequestMapping(value = "/user", method = RequestMethod.GET)     
+    public String welcomeUser(Model model) {
+        model.addAttribute("serverUrl", serverUrl);
+        return "user";
+    }        
+    
+    @RequestMapping(value = "/route", method = RequestMethod.GET)     
+    public String route(Model model) {
+        boolean isAdmin = SecurityUtils.hasRole("ROLE_ADMIN");
+        if (isAdmin){
+            return "redirect:/pages/home/admin";
+        }
+        return "redirect:/pages/home/user";
+    }            
+    
 }

@@ -1,7 +1,0 @@
-<mvc:View
-    xmlns:l="sap.ui.layout"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m"
-    height="100%">    
-    <Label id="lblHome" text="Welcome" design="Bold"/>
-</mvc:View>

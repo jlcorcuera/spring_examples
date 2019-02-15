@@ -46,4 +46,6 @@
      
     <context:property-placeholder location="classpath:test-web/app.properties"/>
     
+    <import resource="spring-security.xml" />
+
 </beans>

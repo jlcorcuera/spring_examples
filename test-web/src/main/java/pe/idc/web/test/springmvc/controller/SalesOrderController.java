@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +34,7 @@ public class SalesOrderController {
     @Autowired
     private SalesOrderService salesOrderService;
     
-    @RequestMapping(value = "/list", method = RequestMethod.POST, produces = "application/json") 
+    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json") 
     @ResponseBody
     public List<SalesOrderDTO> list(@RequestParam(name = "query", required = false) String query) {
         log.info("Sending message to log info from list, query: " + query);

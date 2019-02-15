@@ -23,22 +23,17 @@ public class PublicController {
     @Value("${server_location}")
     private String serverUrl;
     
-    @Value("${open_ui_location}")
-    private String openUIUrl;    
-    
     private static final Logger log = LoggerFactory.getLogger(PublicController.class);
         
     @RequestMapping(value = "/login", method = RequestMethod.GET) 
     public String welcome(Model model) {
         model.addAttribute("serverUrl", serverUrl);
-        model.addAttribute("openUIUrl", openUIUrl);
-        return "index";
+        return "login";
     }
     
     @RequestMapping(value = "/registration", method = RequestMethod.GET) 
     public String registration(Model model) {
         model.addAttribute("serverUrl", serverUrl);
-        model.addAttribute("openUIUrl", openUIUrl);
         return "registration";
     }    
     

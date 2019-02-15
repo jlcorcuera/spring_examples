@@ -20,6 +20,8 @@
         <javax.servlet.version>2.5</javax.servlet.version>
         <javax.validation.version>1.1.0.Final</javax.validation.version>
         <jstl.version>1.2</jstl.version>
+        <kaptcha.version>0.0.9</kaptcha.version>
+        <commons-codec.version>1.9</commons-codec.version>
     </properties>
     
     <dependencies>
@@ -97,7 +99,20 @@
             <groupId>javax.servlet</groupId>
             <version>${jstl.version}</version>
         </dependency>
-                                                                            
+        
+        <!-- captcha -->
+        <dependency>
+            <groupId>com.github.axet</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>${kaptcha.version}</version>
+        </dependency>        
+                   
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
+        </dependency>                                                                                                                                                  
     </dependencies>
 
     <build>
