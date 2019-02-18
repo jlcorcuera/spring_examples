@@ -1,5 +1,7 @@
+<%@page import="org.springframework.context.i18n.LocaleContextHolder" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,18 +13,20 @@
         </script>            
     </head>    
     <body>
+        <%@include file="common/language.jsp" %>
+        <br/>
         <form id="loginForm" method="post" action="<c:url value='/login'/>">
-            <h4>Inicio de sesión</h4>
+            <h4><spring:message code="startSession.label"/></h4>
             <c:if test="${param.error}">
                 <div>
                     <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
                 </div>
             </c:if>            
             <div>
-                <input type="text" id="txtUsuario" name="username" placeholder="Correo electr&oacute;nico" required>
+                <input type="text" id="txtUsuario" name="username" placeholder="<spring:message code='userName.label'/>" required>
             </div>
             <div>
-                <input type="password" id="txtContrasenia" name="password" placeholder="Contrase&ntilde;a" required>
+                <input type="password" id="txtContrasenia" name="password" placeholder="<spring:message code='password.label'/>" required>
             </div>
             <div>
                 <div>
@@ -30,15 +34,15 @@
                 </div>
                 <div>
                     <div>
-                        <input id="txtCodigo" type="kaptcha" name="kaptcha" placeholder="Ingrese el c&oacute;digo" required>
+                        <input id="txtCodigo" type="kaptcha" name="kaptcha" placeholder="<spring:message code='typeCode.label'/>" required>
                     </div>
                 </div>
                 <div>
-                    <button onclick="reloadKaptcha();" type="button">Recargar la imagen</button>
+                    <button onclick="reloadKaptcha();" type="button"><spring:message code='reloadImage.label'/></button>
                 </div>
             </div>
             <div>
-                <button type="submit">Ingresar</button>
+                <button type="submit"><spring:message code='login.label'/></button>
             </div>
         </form>    
     </body>
