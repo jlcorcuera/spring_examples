@@ -1,7 +1,7 @@
 <%@page import="org.springframework.context.i18n.LocaleContextHolder" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <script type="text/javascript">
     function changeLanguage(){
         var languageSelect = document.getElementById('languageSelect');
