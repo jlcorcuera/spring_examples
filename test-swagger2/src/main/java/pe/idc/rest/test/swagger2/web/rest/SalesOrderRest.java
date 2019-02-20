@@ -39,10 +39,10 @@ public class SalesOrderRest {
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json") 
     @ApiOperation("Return all the sales order")    
     @ResponseBody
-    public List<SalesOrderDTO> list() {
+    public ApiResult<List<SalesOrderDTO>> list() {
         log.info("Sending message to log info from list");
         List<SalesOrderDTO> salesOrders = salesOrderService.list();
-        return salesOrders;
+        return new ApiResult<List<SalesOrderDTO>>(true, salesOrders);
     }
     
     @RequestMapping(value = "/edit", method = RequestMethod.PUT, produces = "application/json") 
@@ -53,7 +53,7 @@ public class SalesOrderRest {
         log.info("On edit");
         salesOrderService.update(salesOrder);
         salesOrder = salesOrderService.loadById(salesOrder.getId());
-        return new ApiResult(true, "Sales order updated successfully", salesOrder);
+        return new ApiResult<SalesOrderDTO>(true, "Sales order updated successfully", salesOrder);
     }    
 
     @RequestMapping(value = "/save", method = RequestMethod.POST, produces = "application/json") 
@@ -63,7 +63,7 @@ public class SalesOrderRest {
             value = "Sales Order to store") @RequestBody SalesOrderDTO salesOrder) {
         log.info("On save " + salesOrder);
         salesOrder = salesOrderService.save(salesOrder);
-        return new ApiResult(true, "Sales order stored successfully", salesOrder);
+        return new ApiResult<SalesOrderDTO>(true, "Sales order stored successfully", salesOrder);
     }
     
     @DeleteMapping(value = "/delete/{id}", produces = "application/json") 
@@ -73,6 +73,6 @@ public class SalesOrderRest {
             value = "Sales Order Id", defaultValue = "0") @PathVariable Integer id) {
         log.info("On delete " + id);
         salesOrderService.delete(id);
-        return new ApiResult(true, "Sales order deleted successfully");
+        return new ApiResult<SalesOrderDTO>(true, "Sales order deleted successfully");
     }    
 }

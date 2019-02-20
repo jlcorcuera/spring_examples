@@ -7,16 +7,15 @@ package pe.idc.rest.test.swagger2.web.rest.base;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 /**
  *
  * @author j0s3
  */
-public class ApiResult {
+public class ApiResult<T> {
 
     private boolean success;
     private String message;
-    private Object data;
+    private T data;
     private List<String> errors;
     
     public ApiResult() {
@@ -28,7 +27,12 @@ public class ApiResult {
         this.message = message;
     }
     
-    public ApiResult(boolean success, String message, Object data) {
+    public ApiResult(boolean success, T data) {
+        this.success = success;
+        this.data = data;
+    }        
+    
+    public ApiResult(boolean success, String message, T data) {
         this.success = success;
         this.message = message;
         this.data = data;
@@ -74,14 +78,13 @@ public class ApiResult {
         errors = Arrays.asList(error);
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
-    
     
 
 }
