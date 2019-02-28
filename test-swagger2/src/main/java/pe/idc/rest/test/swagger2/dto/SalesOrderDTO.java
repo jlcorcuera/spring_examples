@@ -5,6 +5,7 @@
  */
 package pe.idc.rest.test.swagger2.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
@@ -22,6 +23,7 @@ public class SalesOrderDTO {
     @ApiModelProperty(notes = "Document number")
     private String numDoc;
     @ApiModelProperty(notes = "Created date")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", shape = JsonFormat.Shape.STRING)
     private Date date;
     @ApiModelProperty(notes = "Total amount")
     private Double total;
@@ -35,7 +37,7 @@ public class SalesOrderDTO {
     private String salesman;
     @ApiModelProperty(notes = "List of order details")
     private List<SalesOrderDetailDTO> details;
-
+    
     public Integer getId() {
         return id;
     }

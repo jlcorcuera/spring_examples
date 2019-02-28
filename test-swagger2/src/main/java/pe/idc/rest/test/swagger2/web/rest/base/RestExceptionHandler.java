@@ -21,7 +21,7 @@ public class RestExceptionHandler {
     
     private static final Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
 
-    @ExceptionHandler(value = {ServiceException.class})
+    @ExceptionHandler(value = {ServiceException.class, Exception.class})
     @ResponseBody
     protected ApiResult handleServiceException(ServiceException ex, WebRequest request) {
         log.error("ServiceException", ex);

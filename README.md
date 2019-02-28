@@ -29,7 +29,7 @@ Where "C:\Repository\sapui" folder contains the content of https://tools.hana.on
                   type="javax.sql.DataSource"
                   username="testuser"
                   password="p4ssw0rd"
-                  driverClassName="com.mysql.cj.jdbc.Driver"
+                  driverClassName="com.mysql.jdbc.Driver"
                   url="jdbc:mysql://localhost:3306/test"
                   testWhileIdle="true"
                   testOnBorrow="true"
@@ -40,7 +40,7 @@ Where "C:\Repository\sapui" folder contains the content of https://tools.hana.on
                   minIdle="10"
             />    
 
-- Since in the previous JNDI resource was related to MySQL, we must place the JDBC driver of MySQL into ${TOMCAT_HOME}\lib directory (In this you must put mysql-connector-java-8.0.13.jar inside it)
+- Since in the previous JNDI resource was related to MySQL, we must place the JDBC driver of MySQL into ${TOMCAT_HOME}\lib directory (In this you must put mysql-connector-java-5.1.47 inside it)
 
 ## Netbeans 10:
 

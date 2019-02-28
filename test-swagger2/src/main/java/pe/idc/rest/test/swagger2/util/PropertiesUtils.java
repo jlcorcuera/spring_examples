@@ -1,4 +1,4 @@
-package pe.idc.web.test.springmvc.util;
+package pe.idc.rest.test.swagger2.util;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -10,7 +10,7 @@ public final class PropertiesUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesUtils.class);
 
     private static final Properties APP_PROPERTIES;
-    private static final String APP_PROPERTIES_PATH = "properties/test-web/app.properties";
+    private static final String APP_PROPERTIES_PATH = "properties/test-swagger2/app.properties";
     private static final Properties MESSAGES_PROPERTIES;
     private static final String MESSAGES_PROPERTIES_PATH = "resources/messages.properties";
 
