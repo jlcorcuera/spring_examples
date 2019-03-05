@@ -16,14 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `test`
+-- Table structure for table `cliente`
 --
 
-/*!40000 DROP DATABASE IF EXISTS `test`*/;
+DROP TABLE IF EXISTS `cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cliente` (
+  `ID_CLIENTE` int(11) NOT NULL AUTO_INCREMENT,
+  `RAZON_SOCIAL` varchar(45) NOT NULL,
+  `CORREO` varchar(45) DEFAULT NULL,
+  `PASSWORD` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ID_CLIENTE`)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `test` /*!40100 DEFAULT CHARACTER SET latin1 */;
+--
+-- Dumping data for table `cliente`
+--
 
-USE `test`;
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (56,'Empresa 1','mail@empresa.com','1234');
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `customer`
@@ -106,6 +122,32 @@ LOCK TABLES `sales_order_detail` WRITE;
 INSERT INTO `sales_order_detail` VALUES (4,4,'string',0,0),(27,3,'string 3333',11,222),(28,5,'string',0,0);
 /*!40000 ALTER TABLE `sales_order_detail` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `vendedor`
+--
+
+DROP TABLE IF EXISTS `vendedor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vendedor` (
+  `ID_VENDEDOR` int(11) NOT NULL AUTO_INCREMENT,
+  `NOMBRES` varchar(45) NOT NULL,
+  `CORREO` varchar(45) NOT NULL,
+  `PASSWORD` varchar(45) NOT NULL,
+  PRIMARY KEY (`ID_VENDEDOR`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vendedor`
+--
+
+LOCK TABLES `vendedor` WRITE;
+/*!40000 ALTER TABLE `vendedor` DISABLE KEYS */;
+INSERT INTO `vendedor` VALUES (3,'Vendedor 1','mail@vendedor.com','1234');
+/*!40000 ALTER TABLE `vendedor` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -116,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-21 15:24:46
+-- Dump completed on 2019-03-05 11:59:14
