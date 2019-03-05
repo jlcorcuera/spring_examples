@@ -24,6 +24,7 @@
         <slf4j.simple.version>1.7.25</slf4j.simple.version>
         <hibernate.version>5.4.0.Final</hibernate.version>
         <javax.servlet.version>2.5</javax.servlet.version>
+        <jjwt.version>0.9.0</jjwt.version>
     </properties>
     
     <dependencies>
@@ -128,7 +129,14 @@
             <artifactId>servlet-api</artifactId>
             <version>${javax.servlet.version}</version>
             <scope>provided</scope>
-        </dependency>                                 
+        </dependency>     
+        
+        <!-- For Working with Json Web Tokens (JWT) -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>                                                                
     </dependencies>
 
     <build>

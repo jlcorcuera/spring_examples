@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  */
 @ControllerAdvice
 public class RestExceptionHandler {
-    
+
     private static final Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
 
     @ExceptionHandler(value = {ServiceException.class, Exception.class})
