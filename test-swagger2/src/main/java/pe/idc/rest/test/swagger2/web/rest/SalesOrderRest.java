@@ -16,10 +16,13 @@ import pe.idc.rest.test.swagger2.dto.SalesOrderDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import pe.idc.rest.test.swagger2.security.model.AuthenticatedUser;
+import pe.idc.rest.test.swagger2.security.utils.SecurityUtils;
 import pe.idc.rest.test.swagger2.service.SalesOrderService;
 import pe.idc.rest.test.swagger2.web.rest.base.ApiResult;
 /**
@@ -41,6 +44,8 @@ public class SalesOrderRest {
     @ResponseBody
     public ApiResult<List<SalesOrderDTO>> list() {
         log.info("Sending message to log info from list");
+        AuthenticatedUser authenticatedUser = SecurityUtils.getCurrentUser();
+        log.info("authenticatedUser " + authenticatedUser);
         List<SalesOrderDTO> salesOrders = salesOrderService.list();
         return new ApiResult<List<SalesOrderDTO>>(true, salesOrders);
     }
