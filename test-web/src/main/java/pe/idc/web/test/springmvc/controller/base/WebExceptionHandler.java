@@ -21,10 +21,10 @@ public class WebExceptionHandler {
     
     private static final Logger log = LoggerFactory.getLogger(WebExceptionHandler.class);
 
-    @ExceptionHandler(value = {ServiceException.class})
+    @ExceptionHandler(value = {Exception.class})
     @ResponseBody
-    protected ApiResult handleServiceException(ServiceException ex, WebRequest request) {
-        log.error("ServiceException", ex);
+    protected ApiResult handleException(ServiceException ex, WebRequest request) {
+        log.error("Exception", ex);
         return new ApiResult(false, ex.getMessage(), ex.getErrors());
     }
 

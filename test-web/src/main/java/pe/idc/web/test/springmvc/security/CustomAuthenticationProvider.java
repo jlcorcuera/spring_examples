@@ -5,32 +5,39 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import pe.idc.web.test.springmvc.util.KaptchaUtils;
 
 @Component
-public class CustomAuthenticationProvider implements AuthenticationProvider {
+public class CustomAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomAuthenticationProvider.class);
+    
+    @Override
+    protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
+    }
 
     @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
         String name = authentication.getName();
         String password = authentication.getCredentials().toString();
         boolean validKaptcha = KaptchaUtils.validate(request, null);
+        String enterpriseStr = request.getParameter("enterprise");
+        Integer enterpriseId = (enterpriseStr == null || enterpriseStr.isEmpty()) ? 0 : Integer.parseInt(enterpriseStr);
         LOGGER.info("user: {}", name);
         LOGGER.info("password: {}", password);
         LOGGER.info("validKaptcha: {}", validKaptcha);
+        LOGGER.info("enterpriseId: {}", enterpriseId);
         if (!validKaptcha) {
             throw new InsufficientAuthenticationException("Codigo kaptcha invalido.");
         }
@@ -40,17 +47,16 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         if ("admin".equals(name) && "admin".equals(password)) {
             List<SimpleGrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-            return new UsernamePasswordAuthenticationToken(
-                    name, password, authorities);
+            return new AuthenticatedUser(1, name, enterpriseId, authorities);
         } else if ("user".equals(name) && "user".equals(password)) {
             List<SimpleGrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            return new UsernamePasswordAuthenticationToken(
-                    name, password, authorities);
+            return new AuthenticatedUser(2, name, enterpriseId, authorities);
         } else {
             throw new BadCredentialsException("Error en credenciales");
         }
     }
+
 
     @Override
     public boolean supports(Class<?> authentication) {

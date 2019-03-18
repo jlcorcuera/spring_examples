@@ -23,6 +23,14 @@
                 </div>
             </c:if>            
             <div>
+                <select name="enterprise">
+                    <option value="1">Volvo</option>
+                    <option value="2">Saab</option>
+                    <option value="3">Mercedes</option>
+                    <option value="4">Audi</option>
+                </select>
+            </div>
+            <div>
                 <input type="text" id="txtUsuario" name="username" placeholder="<spring:message code='userName.label'/>" required>
             </div>
             <div>
